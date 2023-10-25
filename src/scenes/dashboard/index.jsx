@@ -2,10 +2,11 @@ import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
-import EmailIcon from "@mui/icons-material/Email";
+import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import TrafficIcon from "@mui/icons-material/Traffic";
+import AccessibleIcon from '@mui/icons-material/Accessible';
+import Diversity1Icon from '@mui/icons-material/Diversity1';
 import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 import GeographyChart from "../../components/GeographyChart";
@@ -55,12 +56,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="12,361"
-            subtitle="Emails Sent"
-            progress="0.75"
+            title="1,230"
+            subtitle="New Hires"
+            progress="0.55"
             increase="+14%"
             icon={
-              <EmailIcon
+              <AccessibilityIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -74,12 +75,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="431,225"
-            subtitle="Sales Obtained"
-            progress="0.50"
+            title="68:32"
+            subtitle="Gender Diversity"
+            progress="0.59"
             increase="+21%"
             icon={
-              <PointOfSaleIcon
+              <Diversity1Icon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -93,8 +94,8 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="32,441"
-            subtitle="New Clients"
+            title="59"
+            subtitle="LGBTQ+ Inclusion"
             progress="0.30"
             increase="+5%"
             icon={
@@ -112,12 +113,12 @@ const Dashboard = () => {
           justifyContent="center"
         >
           <StatBox
-            title="1,325,134"
-            subtitle="Traffic Received"
+            title="124"
+            subtitle="Specially-Abled Hires"
             progress="0.80"
-            increase="+43%"
+            increase="+23%"
             icon={
-              <TrafficIcon
+              <AccessibleIcon
                 sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
               />
             }
@@ -143,14 +144,14 @@ const Dashboard = () => {
                 fontWeight="600"
                 color={colors.grey[100]}
               >
-                Revenue Generated
+                Diversity Hiring
               </Typography>
               <Typography
                 variant="h3"
                 fontWeight="bold"
                 color={colors.greenAccent[500]}
               >
-                $59,342.32
+                11,045
               </Typography>
             </Box>
             <Box>
@@ -165,56 +166,69 @@ const Dashboard = () => {
             <LineChart isDashboard={true} />
           </Box>
         </Box>
-        <Box
-          gridColumn="span 4"
-          gridRow="span 2"
-          backgroundColor={colors.primary[400]}
-          overflow="auto"
-        >
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
-            borderBottom={`4px solid ${colors.primary[500]}`}
-            colors={colors.grey[100]}
-            p="15px"
-          >
-            <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
-              Recent Transactions
-            </Typography>
-          </Box>
-          {mockTransactions.map((transaction, i) => (
+      
             <Box
-              key={`${transaction.txId}-${i}`}
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-              borderBottom={`4px solid ${colors.primary[500]}`}
-              p="15px"
-            >
-              <Box>
-                <Typography
-                  color={colors.greenAccent[500]}
-                  variant="h5"
-                  fontWeight="600"
-                >
-                  {transaction.txId}
-                </Typography>
-                <Typography color={colors.grey[100]}>
-                  {transaction.user}
-                </Typography>
-              </Box>
-              <Box color={colors.grey[100]}>{transaction.date}</Box>
-              <Box
-                backgroundColor={colors.greenAccent[500]}
-                p="5px 10px"
-                borderRadius="4px"
-              >
-                ${transaction.cost}
-              </Box>
-            </Box>
-          ))}
+  gridColumn="span 4"
+  gridRow="span 2"
+  backgroundColor={colors.primary[400]}
+  overflow="auto"
+>
+  {/* Diversity Metrics Title */}
+  <Box
+    display="flex"
+    justifyContent="space-between"
+    alignItems="center"
+    borderBottom={`4px solid ${colors.primary[500]}`}
+    colors={colors.grey[100]}
+    p="15px"
+  >
+    <Typography color={colors.grey[100]} variant="h5" fontWeight="600">
+      Diversity Metrics
+    </Typography>
+  </Box>
+
+  {/* Display Diversity Metrics */}
+  {mockTransactions.map((metric, i) => (
+    <Box
+      key={`${metric.name}-${i}`}
+      display="flex"
+      justifyContent="space-between"
+      alignItems="center"
+      borderBottom={`4px solid ${colors.primary[500]}`}
+      p="15px"
+    >
+      <Box>
+        <Typography
+          color={colors.greenAccent[500]}
+          variant="h5"
+          fontWeight="600"
+        >
+          {metric.name}
+        </Typography>
+        <Typography color={colors.grey[100]}>
+          {metric.description}
+        </Typography>
+      </Box>
+      <Box>
+        <Typography color={colors.grey[100]} fontWeight="600">
+          {metric.value}
+        </Typography>
+        {/* Add margin between value and status */}
+        <Box m="5px 0"> 
+          <Box
+            backgroundColor={colors.greenAccent[500]}
+            p="2px 10px"  
+            borderRadius="4px"
+          >
+            {metric.status}
+          </Box>
         </Box>
+      </Box>
+    </Box>
+  ))}
+</Box>
+
+
 
         {/* ROW 3 */}
         <Box
@@ -270,7 +284,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ marginBottom: "15px" }}
           >
-            Geography Based Traffic
+            Geography Based Diversity
           </Typography>
           <Box height="200px">
             <GeographyChart isDashboard={true} />
