@@ -1,7 +1,7 @@
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
+import IosShareIcon from '@mui/icons-material/IosShare';
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
@@ -22,23 +22,28 @@ const Dashboard = () => {
     <Box m="20px">
       {/* HEADER */}
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
-              fontSize: "14px",
-              fontWeight: "bold",
-              padding: "10px 20px",
-            }}
-          >
-            <DownloadOutlinedIcon sx={{ mr: "10px" }} />
-            Download Reports
-          </Button>
-        </Box>
-      </Box>
+  <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
+  <Box>
+    <a
+      href="https://app.powerbi.com/groups/me/reports/de9cdccc-d407-4d18-8602-bf2628edb739/ReportSectiond5c5d64acdcc017bfa1c?experience=power-bi"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Button
+        sx={{
+          backgroundColor: colors.blueAccent[700],
+          color: colors.grey[100],
+          fontSize: "14px",
+          fontWeight: "bold",
+          padding: "10px 20px",
+        }}
+      >
+        <IosShareIcon sx={{ mr: "10px" }} />
+        Go to PowerBI
+      </Button>
+    </a>
+  </Box>
+</Box>
 
       {/* GRID & CHARTS */}
       <Box
@@ -156,7 +161,7 @@ const Dashboard = () => {
             </Box>
             <Box>
               <IconButton>
-                <DownloadOutlinedIcon
+                <IosShareIcon
                   sx={{ fontSize: "26px", color: colors.greenAccent[500] }}
                 />
               </IconButton>
@@ -238,7 +243,7 @@ const Dashboard = () => {
           p="30px"
         >
           <Typography variant="h5" fontWeight="600">
-            Campaign
+            Type of Hire
           </Typography>
           <Box
             display="flex"
@@ -252,9 +257,9 @@ const Dashboard = () => {
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
-              $48,352 revenue generated
+              60% direct hires and 40% lateral hires
             </Typography>
-            <Typography>Includes extra misc expenditures and costs</Typography>
+            <Typography>Direct hires dominate, plus lateral</Typography>
           </Box>
         </Box>
         <Box
@@ -267,7 +272,7 @@ const Dashboard = () => {
             fontWeight="600"
             sx={{ padding: "30px 30px 0 30px" }}
           >
-            Sales Quantity
+            Department Diversity 
           </Typography>
           <Box height="250px" mt="-20px">
             <BarChart isDashboard={true} />
