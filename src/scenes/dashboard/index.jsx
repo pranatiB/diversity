@@ -253,7 +253,7 @@ const Dashboard = () => {
           >
             <ProgressCircle size="125" />
             <Typography
-              variant="h5"
+              variant="h6"
               color={colors.greenAccent[500]}
               sx={{ mt: "15px" }}
             >
