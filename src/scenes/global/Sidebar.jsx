@@ -13,6 +13,8 @@ import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import AddReactionOutlinedIcon from '@mui/icons-material/AddReactionOutlined';
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import QueryStatsIcon from '@mui/icons-material/QueryStats';
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -118,7 +120,7 @@ const Sidebar = () => {
           <Box paddingLeft={isCollapsed ? undefined : "10%"}>
             <Item
               title="Dashboard"
-              to="/"
+              to="/dashboard"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -162,14 +164,14 @@ const Sidebar = () => {
             /> */}
             <Item
               title="Chatbot"
-              to="/calendar"
+              to="/chatbot"
               icon={<CalendarTodayOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
             <Item
               title="FAQ"
-              to="/faq"
+              to="/FAQ"
               icon={<HelpOutlineOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -183,8 +185,15 @@ const Sidebar = () => {
             />
             <Item
             title="Employee Churn"
-            to='/hire'
-            icon={<AddReactionOutlinedIcon />}
+            to='/EmpChurn'
+            icon={<SentimentVeryDissatisfiedIcon />}
+            selected={selected}
+            setSelected={setSelected}
+            />
+            <Item
+            title="Query Solver"
+            to='/EmpCSV'
+            icon={<QueryStatsIcon />}
             selected={selected}
             setSelected={setSelected}
           />

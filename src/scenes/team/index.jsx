@@ -6,10 +6,14 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import Sidebar from "../global/Sidebar";
+import { useState } from 'react'
 
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [isSidebar, setIsSidebar] = useState(true);
+
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -69,7 +73,9 @@ const Team = () => {
   ];
 
   return (
-    <Box m="20px">
+    <div className="app">
+       <Sidebar isSidebar={isSidebar} />
+        <Box m="20px" style={{ width: '100%' }}>
       <Header title="TEAM" subtitle="Managing the Team Members" />
       <Box
         m="40px 0 0 0"
@@ -103,6 +109,8 @@ const Team = () => {
         <DataGrid checkboxSelection rows={mockDataTeam} columns={columns} />
       </Box>
     </Box>
+    </div>
+    
   );
 };
 

@@ -59,13 +59,15 @@ import Invoices from "./scenes/invoices";
 import Contacts from "./scenes/contacts";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "./theme";
-import Calendar from "./scenes/calendar/calendar";
+import ChatBot from "./scenes/calendar/calendar";
 import CandidateHire from "./scenes/CandidateHire/CandidateHire";
 import userContext from "./scenes/userContext/userContext";
 import SignIn from "./scenes/SignIn";
 import Form from "./scenes/form/index";
 import Admin from "./scenes/Admin";
 import EmpChurn from "./scenes/EmpChurn/EmpChurn";
+import FAQ from "./scenes/faq/index.jsx";
+import EmpCSV from "./scenes/EmpCSV/EmpCSV.jsx";
 function App() {
   const [theme, colorMode] = useMode();
   // const [isSidebar, setIsSidebar] = useState(true);
@@ -96,8 +98,11 @@ function App() {
               <Route path="/" element={<SignIn />} />
               <Route path="/Admin" element={<Admin />} />
               <Route path ="/EmpChurn" element={<EmpChurn />} />
-              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/chatbot" element={<ChatBot />} />
               <Route path="/hire" element={<CandidateHire />} />
+              <Route path="/EmpCSV" element={<EmpCSV />} />
+              <Route path="/FAQ" element={<FAQ />} />
+
             </Routes>
           </main>
         </div>

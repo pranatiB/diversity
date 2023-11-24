@@ -8,6 +8,7 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LoginIcon from '@mui/icons-material/Login';
 import SearchIcon from "@mui/icons-material/Search";
+import { Link } from 'react-router-dom';
 
 const Topbar = () => {
   const theme = useTheme();
@@ -15,21 +16,10 @@ const Topbar = () => {
   const colorMode = useContext(ColorModeContext);
 
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
-      {/* SEARCH BAR */}
-      <Box
-        display="flex"
-        backgroundColor={colors.primary[400]}
-        borderRadius="3px"
-      >
-        <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
-        <IconButton type="button" sx={{ p: 1 }}>
-          <SearchIcon />
-        </IconButton>
-      </Box>
-
+    <Box display="flex" justifyContent="flex-end" p={2}>
+      
       {/* ICONS */}
-      <Box display="flex">
+      <Box display="left">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
             <DarkModeOutlinedIcon />
@@ -43,11 +33,11 @@ const Topbar = () => {
         <IconButton>
           <SettingsOutlinedIcon />
         </IconButton>
-        
+         <Link to="/">
         <IconButton>
           <LoginIcon />
         </IconButton>
-
+        </Link>
       </Box>
     </Box>
   );

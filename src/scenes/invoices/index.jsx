@@ -3,10 +3,14 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
+import { useState } from 'react'
+import Sidebar from "../global/Sidebar";
 
 const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [isSidebar, setIsSidebar] = useState(true);
+
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -43,7 +47,10 @@ const Invoices = () => {
   ];
 
   return (
+    
     <Box m="20px">
+          <Sidebar isSidebar={isSidebar} />
+      
       <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box
         m="40px 0 0 0"

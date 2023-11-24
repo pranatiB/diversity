@@ -8,12 +8,19 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
+import Sidebar from "../global/Sidebar";
+import { useState } from 'react';
 
 const FAQ = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+const [isSidebar, setIsSidebar] = useState(true);
+
   return (
-    <Box m="20px">
+    <div className="app">
+          <Sidebar isSidebar={isSidebar} />
+      <Box m="20px" style={{ width: '100%' }}>
+
       <Header title="FAQ" subtitle="Frequently Asked Questions Page" />
 
       <Accordion defaultExpanded>
@@ -101,6 +108,8 @@ const FAQ = () => {
         </AccordionDetails>
       </Accordion>
     </Box>
+    </div>
+    
   );
 };
 
